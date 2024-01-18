@@ -1,0 +1,135 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
+// swift-module-flags: -target arm64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name EstimoteUWB
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import ARKit
+import Combine
+import CoreBluetooth
+@_exported import EstimoteUWB
+import Foundation
+import NearbyInteraction
+import RealityKit
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+import os
+import simd
+@_hasMissingDesignatedInitializers public class EstimoteDevice {
+  @objc deinit
+}
+extension EstimoteUWB.EstimoteDevice : EstimoteUWB.EstimoteIdentifiable {
+  public var publicIdentifier: Swift.String {
+    get
+  }
+}
+extension EstimoteUWB.EstimoteDevice : Swift.Identifiable {
+  public var id: Swift.String {
+    get
+  }
+  public typealias ID = Swift.String
+}
+public class EstimoteUWBManager : Foundation.ObservableObject {
+  public init(delegate: any EstimoteUWB.EstimoteUWBManagerDelegate, options: EstimoteUWB.EstimoteUWBOptions = EstimoteUWBOptions())
+  public func startScanning(session: ARKit.ARSession? = nil)
+  public func stopScanning()
+  public func connect(to discoveredIdentifier: Swift.String, options: [Swift.String : Any]? = nil)
+  public func connect(to identifiable: any EstimoteUWB.UWBIdentifiable)
+  public func disconnect(from device: any EstimoteUWB.UWBIdentifiable)
+  public func disconnect(from publicId: Swift.String)
+  public func worldTransform(for identifiable: any EstimoteUWB.UWBIdentifiable) -> simd.simd_float4x4?
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class EstimoteUWBDevice : EstimoteUWB.EstimoteDevice {
+  @objc deinit
+}
+extension EstimoteUWB.EstimoteUWBDevice {
+  public var distance: Swift.Float {
+    get
+  }
+  public var vector: EstimoteUWB.Vector? {
+    get
+  }
+  public var horizontalAngle: Swift.Float? {
+    get
+  }
+  public var verticalDirectionEstimate: NearbyInteraction.NINearbyObject.VerticalDirectionEstimate? {
+    get
+  }
+}
+extension EstimoteUWB.EstimoteUWBDevice : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+#warning("This should all be folded under a EstimoteDevce")
+#warning("Refactor this into more concrete model and association with peripheral adapter")
+public struct Vector {
+  public var x: Swift.Float {
+    get
+  }
+  public var y: Swift.Float {
+    get
+  }
+  public var z: Swift.Float {
+    get
+  }
+}
+#warning("Need to update and extend this to EstimoteDevice w/ rssi subscription from peripheral")
+@_hasMissingDesignatedInitializers public class EstimoteBLEDevice {
+  final public let rssi: Foundation.NSNumber
+  @objc deinit
+}
+extension EstimoteUWB.EstimoteBLEDevice : EstimoteUWB.EstimoteIdentifiable {
+  public var publicIdentifier: Swift.String {
+    get
+  }
+}
+extension EstimoteUWB.EstimoteBLEDevice : Swift.Identifiable {
+  public var id: Swift.String {
+    get
+  }
+  public typealias ID = Swift.String
+}
+extension EstimoteUWB.EstimoteBLEDevice : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public struct EstimoteUWBOptions {
+}
+extension EstimoteUWB.EstimoteUWBOptions {
+  public init(shouldHandleConnectivity: Swift.Bool = true, requestsPermissions: Swift.Bool = true, isCameraAssisted: Swift.Bool = false)
+}
+public protocol EstimoteIdentifiable {
+  var publicIdentifier: Swift.String { get }
+  var name: Swift.String? { get }
+}
+extension EstimoteUWB.EstimoteIdentifiable {
+  public var name: Swift.String? {
+    get
+  }
+}
+public protocol UWBIdentifiable : EstimoteUWB.EstimoteIdentifiable {
+}
+extension CoreBluetooth.CBPeripheral : EstimoteUWB.UWBIdentifiable {
+  public var publicIdentifier: Swift.String {
+    get
+  }
+}
+public protocol EstimoteUWBManagerDelegate {
+  func didUpdatePosition(for device: EstimoteUWB.EstimoteUWBDevice)
+  func didDiscover(device: any EstimoteUWB.UWBIdentifiable, with rssi: Foundation.NSNumber, from manager: EstimoteUWB.EstimoteUWBManager)
+  func didConnect(to device: any EstimoteUWB.UWBIdentifiable)
+  func didDisconnect(from device: any EstimoteUWB.UWBIdentifiable, error: (any Swift.Error)?)
+  func didFailToConnect(to device: any EstimoteUWB.UWBIdentifiable, error: (any Swift.Error)?)
+  func didRange(for beacon: EstimoteUWB.EstimoteBLEDevice)
+}
+extension EstimoteUWB.EstimoteUWBManagerDelegate {
+  public func didDiscover(device: any EstimoteUWB.UWBIdentifiable, with rssi: Foundation.NSNumber, from manager: EstimoteUWB.EstimoteUWBManager)
+  public func didConnect(to device: any EstimoteUWB.UWBIdentifiable)
+  public func didDisconnect(from device: any EstimoteUWB.UWBIdentifiable, error: (any Swift.Error)?)
+  public func didFailToConnect(to device: any EstimoteUWB.UWBIdentifiable, error: (any Swift.Error)?)
+  public func didRange(for beacon: EstimoteUWB.EstimoteBLEDevice)
+}

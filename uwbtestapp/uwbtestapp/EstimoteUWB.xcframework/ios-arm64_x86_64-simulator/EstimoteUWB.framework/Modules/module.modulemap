@@ -1,0 +1,19 @@
+
+framework module EstimoteUWB {
+    umbrella header "EstimoteUWB.h"
+    
+    export *
+    module * { export * }
+    
+    framework module Private {
+        umbrella header "EstimoteUWBPrivate.h"
+        
+        export *
+        module * { export * }
+    }
+}
+
+module EstimoteUWB.Swift {
+  header "EstimoteUWB-Swift.h"
+  requires objc
+}
