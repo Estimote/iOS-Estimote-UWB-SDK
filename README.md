@@ -4,7 +4,7 @@ Welcome to the Era of Contextual Computing!
 
 This README is created to assist you in developing next-generation, real-world applications that offer magical experiences through location-based and spatial awareness technologies, powered by Estimote UWB Beacons.
 
-Our **Estimote UWB SDK** is a software library designed to showcase precise ranging capabilities using Estimote UWB Beacons. It leverages the Core Bluetooth API and the Nearby Interactions API to discover, connect to, and range between UWB-enabled iPhones and beacons.
+Our **Estimote UWB SDK** is a software library designed to showcase precise ranging capabilities between [Estimote UWB Beacons](https://estimote.com/uwb-beacons) and UWB-enabled iPhones (iPhone 11 to iPhone 14 with U1 chip or iPhone 15 and newer with 2nd-gen UWB chip). It leverages the Core Bluetooth API and the Nearby Interactions API to discover, connect to, and range between UWB-enabled iPhones and beacons.
 
 To integrate the Estimote UWB SDK into your project, you need to import the `EstimoteUWB` files into your Xcode project. Additionally, ensure that you have added all the necessary permissions to your `Info.plist` file for the SDK to function correctly. Detailed instructions on the required permissions are provided towards [the end of this document.](https://github.com/Estimote/iOS-Estimote-UWB-SDK/blob/master/README.md#required-user-permissions)
 
