@@ -63,6 +63,7 @@ Discovered device: b288b83142c74bf0ab28178d93532e32 rssi: -40
 
 Next to the identifier, the rssi value represents the received signal strength index (RSSI) in dB units. A higher value indicates closer proximity to the beacon. For instance, -40 dB suggests a relatively close distance (20-50cm), whereas -90 dB indicates a much greater distance (several meters away).
 
+![Estimote UWB Beacons - BLE rssi](https://s3.amazonaws.com/assets.github.estimote.com/uwb-sdk/rssi.gif)
 
 >[!IMPORTANT]
 >It's important to note that the RSSI value is determined by the Core Bluetooth API and does not reflect precise UWB ranging yet. RSSI can be quite variable, fluctuating based on the orientation of the phone or obstacles between the phone and the beacon. Therefore, RSSI should only be used as an indication of which beacons are relatively nearby, especially since your phone can scan and discover hundreds of beacons in the vicinity.
