@@ -200,7 +200,7 @@ To workaround this limitation, you should disconnect from the beacons once you h
 
 **Phone ranging with multiple UWB beacons**
 
-Your phone is able to discover, connect and range at the same time with multiple UWB beacons that around. You can use these measurements to enhance precision and reliabilit of your experience or to create simple triangulation and positioning algorithm.
+Your phone is able to discover, connect and range at the same time with multiple UWB beacons that around. You can use these measurements to enhance precision and reliability of your experience or to create simple triangulation and positioning algorithm.
 
 ![Estimote UWB Beacons](https://s3.amazonaws.com/assets.github.estimote.com/uwb-sdk/phone-ranging-multiple-beacons.gif)
 
@@ -253,6 +253,6 @@ Our UWB Beacons sold as part of the Development Kit have default settings for Bl
 
 ### Contact Estimote Team
 
-Our contact details are provided on our website [www.estimote.com](https://estimote.com) and our customer success team is always available at contact (at) estimote.com to discuss business opportunities or opening a support project. We have shipped milions of beacons and have seen most sophisticated use-cases and are always happy to recommend the best approach or discuss firmware/hardware customization for your project.
+Our contact details are provided on our website [www.estimote.com](https://estimote.com) and our customer success team is always available at contact (at) estimote.com to discuss business opportunities or opening a support project. We have shipped millions of beacons and have seen most sophisticated use-cases and are always happy to recommend the best approach or discuss firmware/hardware customization for your project.
 
 Unfortunately our engineers are not able to provide tech assistance to every Dev Kit customer without support project initiated. Free tech support can be only provided via our [Developer Forum](https://forums.estimote.com/).
